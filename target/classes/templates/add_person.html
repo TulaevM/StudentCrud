@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Person</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+</head>
+<body>
+<div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="container">
+        <h1 class="text-center">Add Person</h1>
+        <form action="#" th:action="@{/population/add}" th:object="${personDao}" method="post">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" th:field="*{name}" required>
+            </div>
+            <div class="form-group">
+                <label for="surname">Surname:</label>
+                <input type="text" class="form-control" id="surname" th:field="*{surname}" required>
+            </div>
+            <div class="form-group">
+                <label for="birthYear">Birth Year:</label>
+                <input type="date" class="form-control" id="birthYear" th:field="*{birthYear}" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+        <a th:href="@{/population/people}" class="btn btn-secondary mt-2">Cancel</a>
+    </div>
+</div>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/popper.min.js"></script>
+</body>
+</html>

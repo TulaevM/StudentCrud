@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Year Table</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      border: 1px solid black;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+    }
+
+    th {
+      cursor: pointer;
+    }
+  </style>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+<div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+  <table>
+    <thead>
+    <tr>
+      <th data-sort-key="year">Year</th>
+      <th data-sort-key="count">Count</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Using Thymeleaf to iterate through the HashMap and display data -->
+    <tr th:each="yearEntry : ${yearMap.entrySet()}">
+      <td th:text="${yearEntry.key}"></td>
+      <td th:text="${yearEntry.value}"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  // JavaScript code to handle sorting
+  const table = document.querySelector('table');
+  const headers = table.querySelectorAll('th[data-sort-key]');
+
+  headers.forEach(header => {
+    header.addEventListener('click', () => {
+      const sortKey = header.dataset.sortKey;
+      const rows = Array.from(table.querySelectorAll('tbody tr'));
+
+      rows.sort((a, b) => {
+        const aValue = a.querySelector(`td:nth-child(${header.cellIndex + 1})`).textContent;
+        const bValue = b.querySelector(`td:nth-child(${header.cellIndex + 1})`).textContent;
+
+        if (sortKey === 'year') {
+          return aValue.localeCompare(bValue, undefined, { numeric: true });
+        } else if (sortKey === 'count') {
+          return parseInt(aValue) - parseInt(bValue);
+        }
+      });
+
+      // Clear the table body and append sorted rows
+      const tbody = table.querySelector('tbody');
+      while (tbody.firstChild) {
+        tbody.removeChild(tbody.firstChild);
+      }
+      rows.forEach(row => tbody.appendChild(row));
+    });
+  });
+</script>
+
+</body>
+</html>

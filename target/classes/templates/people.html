@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>People List</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #c3ecf2;
+        }
+    </style>
+</head>
+<body>
+<h1>People List</h1>
+<br>
+<!-- Add button in green color -->
+<a th:href="@{/population/add}" style="background-color: green; color: white; padding: 8px; border-radius: 4px; text-decoration: none;">Add New Person</a>
+
+<!-- Statistics Orange button -->
+<a th:href="@{/population/showYears}" style="background-color: orange; color: white; padding: 8px; border-radius: 4px; text-decoration: none; margin-left: 10px;">Statistics</a>
+<br>
+<br>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Birth Year</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="person : ${people}">
+        <td th:text="${person.id}"></td>
+        <td th:text="${person.name}"></td>
+        <td th:text="${person.surname}"></td>
+        <td th:text="${person.birthYear}"></td>
+        <td>
+            <!-- Update button in yellow color -->
+            <a th:href="@{/population/update/{id}(id=${person.id})}" style="background-color: yellow; color: black; padding: 8px; border-radius: 4px; text-decoration: none;">Update</a>
+            <!-- Delete button in red color -->
+            <a th:href="@{/population/delete/{id}(id=${person.id})}" style="background-color: red; color: white; padding: 8px; border-radius: 4px; text-decoration: none;">Delete</a>
+        </td>
+    </tr>
+</table>
+<!--<link rel="stylesheet" href="/css/bootstrap.min.css">-->
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/popper.min.js"></script>
+</body>
+</html>

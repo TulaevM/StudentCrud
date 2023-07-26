@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Delete Person</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+</head>
+<body>
+<div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+  <div class="container text-center">
+    <h1>Delete Person</h1>
+    <p>Are you sure you want to delete this person?</p>
+    <form th:action="@{/population/delete/{id}(id=${person.id})}" method="post">
+      <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+    <a th:href="@{/population/people}" class="btn btn-secondary mt-2">Cancel</a>
+  </div>
+</div>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/popper.min.js"></script>
+</body>
+</html>
