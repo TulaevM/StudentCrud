@@ -3,6 +3,7 @@ package tmd.pop;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import tmd.pop.entity.Person;
 import tmd.pop.repository.PersonRepository;
 import tmd.pop.service.PersonService;
@@ -12,11 +13,6 @@ import java.time.LocalDate;
 @SpringBootApplication
 public class Application {
 
-    private final PersonService personService;
-
-    public Application(PersonService personService) {
-        this.personService = personService;
-    }
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -24,7 +20,7 @@ public class Application {
 
     }
 
-    //    @Bean
+        @Bean
     CommandLineRunner commandLineRunner(PersonRepository personRepository) {
         return args -> {
             Person person = Person.builder()
