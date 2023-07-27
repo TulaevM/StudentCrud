@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Error Page</title>
+    <style>
+        body {
+            background-color: #f2f2f2; /* Set your desired background color here */
+            font-family: Arial, sans-serif; /* Add a preferred font-family */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #d9534f; /* Set your desired text color here */
+        }
+        p {
+            color: #555; /* Set your desired text color here */
+        }
+        button {
+            background-color: #007bff; /* Set your desired button background color here */
+            color: #fff; /* Set your desired button text color here */
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Oops! Something went wrong.</h1>
+    <p>We're sorry, but an error occurred.</p>
+    <p>Click the button below to return to the population details page.</p>
+    <form th:action="@{/population/people}" method="get">
+        <button type="submit">View Population</button>
+    </form>
+</div>
+</body>
+</html>
