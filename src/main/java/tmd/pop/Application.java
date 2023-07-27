@@ -20,7 +20,7 @@ public class Application {
 
     }
 
-        @Bean
+//        @Bean
     CommandLineRunner commandLineRunner(PersonRepository personRepository) {
         return args -> {
             Person person = Person.builder()

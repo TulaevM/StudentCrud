@@ -1,15 +1,10 @@
 spring:
   datasource:
-    url: jdbc:postgresql://dpg-cj0icbs07spl5opga080-a.oregon-postgres.render.com:5432/po_jdaz
+    url: jdbc:postgresql://dpg-cj1566c07spjv9qahrrg-a.oregon-postgres.render.com:5432/po_7ffo
     driver-class-name: org.postgresql.Driver
-    username: po_jdaz_user
-    password: dpg-cj0icbs07spl5opga080-a.oregon-postgres.render.com
+    username: po_7ffo_user
+    password: zNr2PmQki1ABt3hGtWvPy9dq5i3k4bvU
 
-#      url: jdbc:postgresql://localhost:5432/popdb
-#  postgres://po_jdaz_user:fs5d1kGK5G3F0J0fVuVGhAMZiIg7MikV@dpg-cj0icbs07spl5opga080-a.oregon-postgres.render.com/po_jdaz
-#      driver-class-name: org.postgresql.Driver
-#      username: postgres
-#      password: 123
 
   jpa:
     hibernate:
